@@ -1,5 +1,9 @@
 package helper
 
 func HelloWord(name string) string {
-	return "Hello " + name
+	return "hello " + name
+}
+
+func HelloNasabah(fullname string) string {
+	return "hai " + fullname
 }
