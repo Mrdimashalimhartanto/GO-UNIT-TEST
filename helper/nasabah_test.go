@@ -9,9 +9,15 @@ import (
 
 // todo banchmark testing befungsi untuk test kecepatan kodingan kita
 // todo * kecepatan untuk benchmark 0.127s *
-func BenchmarkHelloWorld1(b *testing.B) {
+func BenchmarkHelloNasabah(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		HelloWord("hello")
+		HelloWord("DIMAS HALIM HARTANTO")
+	}
+}
+
+func BenchmarkHelloWorld2(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HelloWord("TESTING BENCHMARK")
 	}
 }
 
@@ -25,20 +31,20 @@ func TestMain(m *testing.M) {
 	fmt.Println("SETELAH UNIT TEST")
 }
 
-func TestSubTest(t *testing.T) {
-	t.Run("hello", func(t *testing.T) {
-		result := HelloWord("hello")
-		require.Equal(t, "hello dimas", result, "hasil di temukan")
-	})
-}
+//func TestSubTest(t *testing.T) {
+//	t.Run("hello", func(t *testing.T) {
+//		result := HelloWord("hello")
+//		require.Equal(t, "hello dimas", result, "hasil di temukan")
+//	})
+//}
 
-func TestSubTestAlamat(t *testing.T) {
-	t.Run("hello", func(t *testing.T) {
-		result := HelloWord("hello")
-		require.Equal(t, "hello nasabah", result, "NASABAH BERHASIL DI TAMPILKAN")
-
-	})
-}
+//func TestSubTestAlamat(t *testing.T) {
+//	t.Run("hello", func(t *testing.T) {
+//		result := HelloWord("hello")
+//		require.Equal(t, "hello nasabah", result, "NASABAH BERHASIL DI TAMPILKAN")
+//
+//	})
+//}
 
 //func TestSubTestBerhasil(t *testing.T) {
 //	t.Run("hello", func(t *testing.T) {
@@ -97,14 +103,14 @@ func TestHelloWorldDimasHalim(t *testing.T) {
 	fmt.Println("TestHelloWorldDimasHalim Done")
 }
 
-func TestDataNasabah(t *testing.T) {
-	result := HelloWord("Dimas")
-
-	if result != "hello dimas" {
-		t.Error("hasil tidak hello dimas")
-	}
-	fmt.Println("TestDataNasabah done")
-}
+//func TestDataNasabah(t *testing.T) {
+//	result := HelloWord("Dimas")
+//
+//	if result != "hello dimas" {
+//		t.Error("hasil tidak hello dimas")
+//	}
+//	fmt.Println("TestDataNasabah done")
+//}
 
 func TestHelloWorldDimas(t *testing.T) {
 	result := HelloWord("Dimas")
