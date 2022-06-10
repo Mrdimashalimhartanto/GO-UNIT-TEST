@@ -4,11 +4,18 @@ import (
 	"fmt"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"runtime"
 	"testing"
 )
 
-// function test main
+// todo banchmark testing befungsi untuk test kecepatan kodingan kita
+// todo * kecepatan untuk benchmark 0.127s *
+func BenchmarkHelloWorld1(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HelloWord("hello")
+	}
+}
+
+// function test main golang
 func TestMain(m *testing.M) {
 	// sebelum unit test
 	fmt.Println("SEBELUM UNIT TEST")
@@ -17,6 +24,29 @@ func TestMain(m *testing.M) {
 	// setelah
 	fmt.Println("SETELAH UNIT TEST")
 }
+
+func TestSubTest(t *testing.T) {
+	t.Run("hello", func(t *testing.T) {
+		result := HelloWord("hello")
+		require.Equal(t, "hello dimas", result, "hasil di temukan")
+	})
+}
+
+func TestSubTestAlamat(t *testing.T) {
+	t.Run("hello", func(t *testing.T) {
+		result := HelloWord("hello")
+		require.Equal(t, "hello nasabah", result, "NASABAH BERHASIL DI TAMPILKAN")
+
+	})
+}
+
+//func TestSubTestBerhasil(t *testing.T) {
+//	t.Run("hello", func(t *testing.T) {
+//		result := HelloWord("hello")
+//		require.Equal(t, "hello", result, "selamat datang")
+//
+//	})
+//}
 
 //todo *panic jangan di pake untuk test unit*
 
@@ -31,19 +61,21 @@ func TestHelloWorldAssert(t *testing.T) {
 
 // todo menggunakan assert require
 func TestHelloWorldRequire(t *testing.T) {
-	result := HelloWord("Halim")
-	assert.Equal(t, "hello Halim", result)
+	result := HelloWord("halim")
+	assert.Equal(t, "hello halim", result, "halim berhasil ketampil")
+	//assert.Equal(t, "hello Halim", result)
 	fmt.Println("Tidak di eksekusi")
 }
 
-func TestSkip(t *testing.T) {
-	if runtime.GOOS == "darwin" {
-		t.Skip("gabisa jalan di server dev")
-	}
-
-	result := HelloWord("CMS-EPAY")
-	require.Equal(t, "hello CMS", result, "TEST CMS SENIN DI MULAI")
-}
+//func TestSkip(t *testing.T) {
+//	if runtime.GOOS == "darwin" {
+//		t.Skip("gabisa jalan di server dev")
+//	}
+//
+//	result := HelloWord("dimas")
+//	require.Equal(t, "hello dimas", result, "TEST CMS SENIN DI MULAI")
+//	fmt.Println("data dimas berhasil di tampilkan")
+//}
 
 // testing nasabah
 func TestNasabah(t *testing.T) {
@@ -63,6 +95,15 @@ func TestHelloWorldDimasHalim(t *testing.T) {
 		t.Error("hasil tidak hello dimas")
 	}
 	fmt.Println("TestHelloWorldDimasHalim Done")
+}
+
+func TestDataNasabah(t *testing.T) {
+	result := HelloWord("Dimas")
+
+	if result != "hello dimas" {
+		t.Error("hasil tidak hello dimas")
+	}
+	fmt.Println("TestDataNasabah done")
 }
 
 func TestHelloWorldDimas(t *testing.T) {
